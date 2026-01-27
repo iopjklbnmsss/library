@@ -1,4 +1,4 @@
-SansHubLibrary = {}
+Library = {}
 SaveTheme = {}
 
 local themes = {
@@ -5222,4 +5222,4 @@ function Library:Window(p)
 end
 
 
-return SansHubLibrary
+return Library
