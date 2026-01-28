@@ -1097,7 +1097,7 @@ function Library:Window(p)
 	local Theme = p.Theme or 'Dark'
 	local Keybind = p.Config.Keybind or Enum.KeyCode.LeftControl
 	local Size = p.Config.Size or UDim2.new(0, 530,0, 400)
-	local QQLink = p.QQLink or nil
+	local DiscordLink = p.DiscordLink or nil
 	local Version = p.Version or nil
 	
 	local keybindConnection = nil
@@ -1287,40 +1287,40 @@ function Library:Window(p)
 	ChSize_1.Image = "rbxassetid://15082210525"
 	ChSize_1.ImageTransparency = 0.5
 
-	local QQButton = nil
-	if QQLink then
-		QQButton = Instance.new("TextButton")
-		QQButton.Name = "QQButton"
-		QQButton.Parent = Ct_1
-		QQButton.Active = true
-		QQButton.AnchorPoint = Vector2.new(1, 0.5)
-		QQButton.BackgroundColor3 = Color3.fromRGB(24,24,31)
-		QQButton.BorderColor3 = Color3.fromRGB(0,0,0)
-		QQButton.BorderSizePixel = 0
-		QQButton.Position = UDim2.new(1, -125,0.5, 0)
-		QQButton.Size = UDim2.new(0, 20,0, 20)
-		QQButton.Font = Enum.Font.SourceSans
-		QQButton.Text = ""
-		QQButton.TextColor3 = Color3.fromRGB(0,0,0)
-		QQButton.TextSize = 14
+	local DiscordButton = nil
+	if DiscordLink then
+		DiscordButton = Instance.new("TextButton")
+		DiscordButton.Name = "DiscordButton"
+		DiscordButton.Parent = Ct_1
+		DiscordButton.Active = true
+		DiscordButton.AnchorPoint = Vector2.new(1, 0.5)
+		DiscordButton.BackgroundColor3 = Color3.fromRGB(24,24,31)
+		DiscordButton.BorderColor3 = Color3.fromRGB(0,0,0)
+		DiscordButton.BorderSizePixel = 0
+		DiscordButton.Position = UDim2.new(1, -125,0.5, 0)
+		DiscordButton.Size = UDim2.new(0, 20,0, 20)
+		DiscordButton.Font = Enum.Font.SourceSans
+		DiscordButton.Text = ""
+		DiscordButton.TextColor3 = Color3.fromRGB(0,0,0)
+		DiscordButton.TextSize = 14
 
-		local QQButtonCorner = Instance.new("UICorner")
-		QQButtonCorner.Parent = QQButton
-		QQButtonCorner.CornerRadius = UDim.new(0, 4)
+		local DiscordButtonCorner = Instance.new("UICorner")
+		DiscordButtonCorner.Parent = DiscordButton
+		DiscordButtonCorner.CornerRadius = UDim.new(0, 4)
 
-		local QQIcon = Instance.new("ImageLabel")
-		QQIcon.Name = "QQIcon"
-		QQIcon.Parent = QQButton
-		QQIcon.BackgroundColor3 = Color3.fromRGB(255,255,255)
-		QQIcon.BackgroundTransparency = 1
-		QQIcon.BorderColor3 = Color3.fromRGB(0,0,0)
-		QQIcon.BorderSizePixel = 0
-		QQIcon.Size = UDim2.new(1, 0,1, 0)
-		QQIcon.Image = "rbxassetid://73613422394051"
-		QQIcon.ImageTransparency = 0
+		local DiscordIcon = Instance.new("ImageLabel")
+		DiscordIcon.Name = "DiscordIcon"
+		DiscordIcon.Parent = DiscordButton
+		DiscordIcon.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		DiscordIcon.BackgroundTransparency = 1
+		DiscordIcon.BorderColor3 = Color3.fromRGB(0,0,0)
+		DiscordIcon.BorderSizePixel = 0
+		DiscordIcon.Size = UDim2.new(1, 0,1, 0)
+		DiscordIcon.Image = "rbxassetid://73613422394051"
+		DiscordIcon.ImageTransparency = 0
 
-		addToTheme('Main', QQButton)
-		addToTheme('Text & Icon', QQIcon)
+		addToTheme('Main', DiscordButton)
+		addToTheme('Text & Icon', DiscordIcon)
 	end
 
 	DropdownValue_1.Name = "DropdownValue"
@@ -1329,7 +1329,7 @@ function Library:Window(p)
 	DropdownValue_1.BackgroundColor3 = Color3.fromRGB(24,24,31)
 	DropdownValue_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	DropdownValue_1.BorderSizePixel = 0
-	DropdownValue_1.Position = UDim2.new(1, QQLink and -25 or 0,0.5, 0)
+	DropdownValue_1.Position = UDim2.new(1, DiscordLink and -25 or 0,0.5, 0)
 	DropdownValue_1.Size = UDim2.new(0, 120,0, 20)
 	DropdownValue_1.Transparency = 1
 
@@ -5091,10 +5091,10 @@ function Library:Window(p)
 		
 		CallTheme(Theme)
 
-		if QQButton and QQLink then
-			QQButton.MouseButton1Click:Connect(function()
+		if DiscordButton and DiscordLink then
+			DiscordButton.MouseButton1Click:Connect(function()
 				if setclipboard then
-					setclipboard(QQLink)
+					setclipboard(DiscordLink)
 				end
 				Tabs:Notify({
 					Title = "QQ",
